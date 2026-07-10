@@ -429,7 +429,7 @@
     var caseNav = document.getElementById('case-nav');
     caseNav.querySelectorAll('button').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        var target = container.querySelector('[data-section="' + btn.getAttribute('data-section') + '"]');
+        var target = container.querySelector('.case-section[data-section="' + btn.getAttribute('data-section') + '"], .case-block[data-section="' + btn.getAttribute('data-section') + '"]');
         if (target) {
           var top = target.getBoundingClientRect().top + window.scrollY - 110;
           window.scrollTo({ top: top, behavior: 'smooth' });
