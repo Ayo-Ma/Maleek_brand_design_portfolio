@@ -66,7 +66,29 @@
   document.querySelectorAll('[data-nav]').forEach(function (el) {
     el.addEventListener('click', function () {
       navigate(el.getAttribute('data-nav'));
+      closeMobileNav();
     });
+  });
+
+  var navToggle = document.getElementById('nav-toggle');
+  var navLinks = document.getElementById('nav-links');
+
+  function closeMobileNav() {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  navToggle.addEventListener('click', function () {
+    var isOpen = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('is-open', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.addEventListener('click', function (e) {
+    if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && e.target !== navToggle && !navToggle.contains(e.target)) {
+      closeMobileNav();
+    }
   });
 
   function updateNavActive(page) {
