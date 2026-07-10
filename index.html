@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maleek — Brand Strategist &amp; Designer</title>
+<meta name="description" content="Maleek is a brand strategist and designer building brand systems from strategy through applications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <button class="nav-logo" data-nav="home"><span>maleek</span><span class="dot"></span></button>
+  <div class="nav-links">
+    <button class="nav-link" data-nav="about">About</button>
+    <button class="nav-link" data-nav="work">Work</button>
+    <button class="nav-link" data-nav="services">Services</button>
+    <button class="nav-link nav-contact" data-nav="contact">Contact</button>
+  </div>
+</nav>
+
+<!-- ============ HOME ============ -->
+<main class="page" id="page-home" data-screen="home">
+  <section class="hero wrap">
+    <div class="eyebrow">Maleek — Brand Strategist &amp; Designer</div>
+    <h1>Strategy before <span>design.</span></h1>
+    <p>I help ambitious businesses build brands people actually remember — starting with why, not what it looks like.</p>
+  </section>
+
+  <section class="about-teaser wrap">
+    <div class="about-teaser-grid">
+      <div class="about-teaser-card">
+        <div>
+          <div class="kicker">About the strategist</div>
+          <h2>Strategy first.<br><span class="dim">Always.</span></h2>
+          <p>I build brand systems from a clear strategic foundation — combining rigorous positioning work with restrained, precise design so identities hold up under scrutiny.</p>
+        </div>
+        <div class="about-teaser-actions">
+          <button class="btn btn-light" data-nav="about">More about me</button>
+          <button class="btn btn-outline" data-nav="services">See services</button>
+        </div>
+      </div>
+      <div class="about-teaser-visual">
+        <div class="img-slot rounded-20"><span class="img-slot-hint">Drop a portrait here</span></div>
+        <div class="about-teaser-note">
+          <div class="dot"></div>
+          <div class="txt">Currently taking on full-rebrand engagements — strategy through applications.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="industries wrap">
+    <div class="label">Industries explored</div>
+    <div class="industries-row" id="industries-row"></div>
+  </section>
+
+  <section class="philosophy wrap">
+    <div class="label">My philosophy</div>
+    <h2>Strategist-led.<br><span class="dim">Built on restraint.</span></h2>
+    <p>I don't just create visuals — I build systems, grounded in strategy, so every decision earns its place.</p>
+    <div class="philosophy-grid" id="philosophy-grid"></div>
+  </section>
+
+  <section class="selected-work wrap">
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <span class="meta">02 projects</span>
+    </div>
+    <div class="work-body" id="home-work-body">
+      <div class="work-list" id="home-work-list"></div>
+      <div class="work-preview" id="home-work-preview"></div>
+    </div>
+  </section>
+
+  <section class="how-i-work wrap">
+    <h2>How I work</h2>
+    <div class="how-grid">
+      <div><div class="idx">01</div><div class="title">Strategy</div><div class="desc">Start with the business problem, not the mood board.</div></div>
+      <div><div class="idx">02</div><div class="title">Identity</div><div class="desc">Turn the strategy into something people can recognize.</div></div>
+      <div><div class="idx">03</div><div class="title">Systems</div><div class="desc">Build rules the brand can grow into, not just a logo.</div></div>
+      <div><div class="idx">04</div><div class="title">Applications</div><div class="desc">Prove the identity works everywhere it needs to live.</div></div>
+    </div>
+  </section>
+
+  <section class="feed wrap">
+    <div class="section-head">
+      <h2>Feed</h2>
+      <span class="meta">Social &amp; flyers</span>
+    </div>
+    <div class="feed-grid" id="feed-grid"></div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-inner">
+      <h2>Have a brand problem worth solving?</h2>
+      <button class="btn btn-light btn-lg" data-nav="contact">Get in touch</button>
+    </div>
+  </section>
+</main>
+
+<!-- ============ ABOUT ============ -->
+<main class="page" id="page-about" data-screen="about">
+  <div class="about-page wrap">
+    <h1>About</h1>
+    <div class="about-grid">
+      <div>
+        <p class="lead">I'm Maleek, a brand strategist and designer working with ambitious founders across Africa and beyond. I spend most of my time asking why before I touch how something looks.</p>
+        <p class="body">My approach comes from a simple belief: design that isn't grounded in strategy is just decoration. Every project starts with research, not references.</p>
+        <div class="about-traits">Confident · Calm · Intelligent · Curious · Precise</div>
+        <div class="about-quote">
+          <div class="q">"Remove before adding."</div>
+          <div class="cite">— a rule I apply to every brief, including this bio.</div>
+        </div>
+        <div class="about-location">Based in Lagos, working with clients everywhere. Currently open for new projects.</div>
+      </div>
+      <div class="about-portrait">
+        <div class="img-slot rounded-20"><span class="img-slot-hint">Drop a portrait here</span></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============ WORK ============ -->
+<main class="page" id="page-work" data-screen="work">
+  <div class="work-page">
+    <div class="work-page-head wrap">
+      <h1>Work</h1>
+      <p>Two studies in building brands that hold up under scrutiny — with three more in progress. Move your cursor over a study to see it turn.</p>
+    </div>
+    <div id="work-tiles"></div>
+    <div id="work-coming-soon"></div>
+  </div>
+</main>
+
+<!-- ============ CASE STUDY ============ -->
+<main class="page" id="page-case" data-screen="case">
+  <div class="case-page wrap">
+    <button class="case-back" data-nav="work">← All work</button>
+    <div id="case-content"></div>
+  </div>
+</main>
+
+<!-- ============ SERVICES ============ -->
+<main class="page" id="page-services" data-screen="services">
+  <div class="services-page wrap">
+    <h1>Services</h1>
+    <p class="lead">Strategy-first branding for founders who need their business understood before it's admired.</p>
+
+    <div class="services-list">
+      <div class="row"><h3>Brand Strategy</h3><p>Positioning, messaging, and the strategic groundwork every other decision depends on.</p></div>
+      <div class="row"><h3>Naming</h3><p>Names that are ownable, sayable, and built to survive a trademark search.</p></div>
+      <div class="row"><h3>Identity Design</h3><p>Wordmarks and visual systems built on typography, not decoration.</p></div>
+      <div class="row"><h3>Brand Systems</h3><p>Guidelines, grids, and rules that let a brand grow without falling apart.</p></div>
+      <div class="row"><h3>Applications</h3><p>Everything from business cards to product UI, designed to carry the strategy through.</p></div>
+    </div>
+
+    <h2 class="process-title">How every project runs</h2>
+    <div class="process-grid">
+      <div><div class="idx">01</div><div class="title">Background</div></div>
+      <div><div class="idx">02</div><div class="title">Challenge</div></div>
+      <div><div class="idx">03</div><div class="title">Research</div></div>
+      <div><div class="idx">04</div><div class="title">Strategy</div></div>
+      <div><div class="idx">05</div><div class="title">Identity</div></div>
+      <div><div class="idx">06</div><div class="title">Applications</div></div>
+      <div><div class="idx">07</div><div class="title">Outcome</div></div>
+      <div><div class="idx">08</div><div class="title">Lessons</div></div>
+    </div>
+
+    <button class="btn btn-dark" data-nav="contact">Interested in working together?</button>
+  </div>
+</main>
+
+<!-- ============ CONTACT ============ -->
+<main class="page" id="page-contact" data-screen="contact">
+  <div class="contact-page wrap">
+    <h1>Let's talk.</h1>
+    <p class="lead">Tell me about the business problem you're trying to solve — I'll tell you if design can help.</p>
+    <a href="mailto:hello@maleek.design" class="btn btn-dark btn-xl email-btn">hello@maleek.design</a>
+    <div class="contact-socials">
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">X / Twitter</a>
+    </div>
+    <div class="contact-status">Currently booking projects for Q4 2026.</div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-brand">
+    <span>maleek</span><span class="dot"></span>
+    <span class="role">Brand Strategist &amp; Designer</span>
+  </div>
+  <div class="footer-copy">© 2026 Maleek. All rights reserved.</div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner" id="lightbox-inner">
+    <div class="img-slot img-slot-bg"></div>
+  </div>
+  <button class="lightbox-close" id="lightbox-close">Close ✕</button>
+</div>
+
+<script src="./js/data.js"></script>
+<script src="./js/app.js"></script>
+</body>
+</html>

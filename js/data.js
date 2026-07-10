@@ -1,0 +1,127 @@
+// Content extracted from the Maleek Portfolio design comp.
+const PROJECTS = [
+  {
+    slug: 'fielo', name: 'Fielo', industry: 'Tech / Logistics', year: '2024', scope: 'Strategy, Identity, Digital',
+    tagline: 'Fleet software that founders actually understand.',
+    accent: '#1D4ED8', palette: ['#1D4ED8', '#0F172A', '#22C55E', '#FFFFFF'],
+    background: "Fielo builds fleet management software that gives mid-sized trucking companies real-time visibility into their vehicles, fuel usage, driver activity, and operational performance. After three years of product development, the platform had earned customer trust, but its brand failed to reflect the simplicity and reliability of the software. The company needed an identity that matched its practical, operator-first approach rather than another generic logistics technology startup.",
+    challenge: "Although the product consistently solved operational problems, Fielo blended into a crowded logistics software market. Its competitors all looked and sounded the same — dark dashboards, technical jargon, and abstract technology imagery. Investors struggled to see differentiation, while potential customers couldn't immediately understand what made Fielo different. The challenge was to build a brand that communicated clarity, confidence, and usability.",
+    research: "Interviews with fleet owners, dispatchers, drivers, and the founding team uncovered one recurring insight: logistics professionals wanted software that respected their experience instead of overwhelming them with technical complexity. Market analysis also revealed that competitors emphasized automation and AI while neglecting the human operators making daily business decisions. This created an opportunity for a brand centered on clarity, trust, and operational confidence.",
+    strategy: "Position Fielo as the fleet software built for operators, not analysts. The brand would remove unnecessary complexity and communicate with straightforward language that customers immediately understood. Every touchpoint would reinforce reliability, visibility, and ease of use, allowing the product — not marketing jargon — to demonstrate its value. The identity would celebrate the people keeping fleets moving rather than the technology behind the scenes.",
+    identityDesc: "The visual identity reflects precision, movement, and operational clarity — a clean geometric sans-serif wordmark with subtle custom cuts inspired by road markings and forward motion.",
+    logoImage: './assets/fielo-wordmark.svg',
+    logomarkImage: './assets/fielo-logomark.svg',
+    extendedIdentity: {
+      logoDesc: "A clean geometric sans-serif wordmark with subtle custom cuts inspired by road markings and forward motion.",
+      palette: [
+        { name: 'Fleet Blue', hex: '#1D4ED8', meaning: 'Trust, technology, movement' },
+        { name: 'Midnight Navy', hex: '#0F172A', meaning: 'Premium dark surfaces' },
+        { name: 'Status Green', hex: '#22C55E', meaning: 'Active, on-time, healthy' },
+        { name: 'Steel Gray', hex: '#475569', meaning: 'Supporting text & icons' },
+        { name: 'Cloud White', hex: '#FFFFFF', meaning: 'Primary background' },
+        { name: 'Mist Gray', hex: '#F8FAFC', meaning: 'Cards & surfaces' }
+      ],
+      typography: "Modern geometric sans-serif for interface consistency, paired with a highly legible secondary typeface for documentation and presentations.",
+      graphicSystem: "Simple route lines, location markers, directional arrows, and subtle grid structures inspired by maps and transportation networks.",
+      photography: "Authentic imagery of trucks, fleet managers, drivers, warehouses, and real operational environments instead of generic technology illustrations.",
+      toneOfVoice: "Plainspoken, confident, practical, and helpful."
+    },
+    applications: ['Business Cards', 'Fleet Dashboard UI', 'Mobile Driver App', 'Vehicle Livery', 'Sales & Investor Pitch Deck', 'Branded Safety Vests & Uniforms', 'Social Media Assets'],
+    semanticColors: [
+      { name: 'Warning Amber', hex: '#F59E0B', meaning: 'Maintenance & pending actions' },
+      { name: 'Alert Red', hex: '#EF4444', meaning: 'Critical faults & errors' },
+      { name: 'Info Blue', hex: '#3B82F6', meaning: 'Live tracking & notifications' }
+    ],
+    outcome: "The rebrand transformed Fielo into a recognizable logistics technology company with a clear market position. Within four months, the company successfully closed its Series A funding round using the new brand identity. Sales conversations became more efficient because prospects quickly understood the product's value, shortening the buying cycle and increasing customer confidence from the very first interaction.",
+    impact: ['Series A closed 4 months after launch', 'Shorter sales cycles post-rebrand'],
+    lessons: "A strong B2B identity is not built through visual complexity — it is built through clarity. By aligning strategy, messaging, and design around the everyday needs of fleet operators, Fielo proved that the most effective brands make complicated products feel simple, trustworthy, and immediately understandable."
+  },
+  {
+    slug: 'koji', name: 'Kōji', industry: 'Hospitality / Food', year: '2025', scope: 'Brand Strategy, Visual Identity, Restaurant Experience',
+    tagline: 'Where craft meets curiosity.',
+    accent: '#5A1E24', palette: ['#5A1E24', '#C49A4A', '#22201D', '#F8F5EF'],
+    background: "Kōji is a modern restaurant that celebrates the unexpected harmony between Japanese culinary craftsmanship and West African ingredients — revealing the techniques, traditions, and flavors the two cuisines already share, rather than treating the pairing as a novelty. After building a loyal following with its first location, Kōji prepared to open a second restaurant. The food had evolved into something remarkable, but the brand still leaned too heavily on familiar Japanese aesthetics — the new identity needed to feel as original as the menu itself.",
+    challenge: "The original brand unintentionally framed Kōji as another Japanese restaurant with African influences, when in reality neither cuisine was secondary. The identity needed to celebrate both cultures equally while avoiding predictable visual clichés. The goal wasn't to say 'fusion' — the goal was to say 'shared craftsmanship.'",
+    research: "Time spent inside the kitchen changed everything. Watching the chefs work revealed that the connection wasn't geographical — it was philosophical. Both Japanese and West African cooking celebrate fermentation, patience, fire, texture, preservation, layered flavor, respect for ingredients, and cooking by instinct as much as precision. The brand would celebrate process before place.",
+    strategy: "Brand position: built on technique, served with joy. Instead of telling customers where the food comes from, Kōji tells them how it's made. Every interaction should feel like being welcomed into the kitchen — warm, confident, curious, and full of small discoveries. Brand essence: Curious Craft. Brand promise: beautiful food begins long before the plate arrives.",
+    identityDesc: "A refined wordmark with elegant proportions and soft curves — the typography carries personality instead of relying on decorative cultural references. No brush strokes, no tribal patterns, just timeless craftsmanship.",
+    extendedIdentity: {
+      logoDesc: "A refined wordmark with elegant proportions and soft curves. No brush strokes, no tribal patterns — just timeless craftsmanship.",
+      palette: [
+        { name: 'Oxblood', hex: '#5A1E24', meaning: 'Warmth, craftsmanship, appetite' },
+        { name: 'Kōji Gold', hex: '#C49A4A', meaning: 'Premium details, moments of delight' },
+        { name: 'Charcoal Ink', hex: '#22201D', meaning: 'Primary typography & dark surfaces' },
+        { name: 'Clay Brown', hex: '#8B6A4D', meaning: 'Natural warmth in packaging & interiors' },
+        { name: 'Forest Moss', hex: '#58634D', meaning: 'Fresh herbs & seasonal ingredients' },
+        { name: 'Rice Paper', hex: '#F8F5EF', meaning: 'Primary background' }
+      ],
+      typography: "Primary: Canela — elegant, warm, premium, and slightly playful. Secondary: Neue Haas Grotesk — clean, modern, understated, and highly readable.",
+      graphicSystem: "Editorial layouts, generous white space, ingredient callouts, hand-drawn ingredient illustrations, circular stamp graphics, organic compositions, soft geometric shapes, premium simplicity.",
+      photography: "The camera feels invited into the kitchen: flour-covered hands, steam rising from bowls, fermentation jars, fire and smoke, fresh ingredients, shared tables, laughing chefs, handmade ceramics, knife preparation, seasonal produce. The food should feel alive, not staged.",
+      toneOfVoice: "Imagine a chef explaining something fascinating over dinner: conversational, confident, intelligent, warm, lighthearted. Never pretentious, never overly serious."
+    },
+    applications: ['Menu', 'Restaurant Signage', 'Packaging', 'Staff Uniform', 'Business Cards', 'Website', 'Social Media', 'Interior Experience'],
+    semanticColors: [
+      { name: 'Fresh Green', hex: '#5F8A58', meaning: 'Fresh ingredients & seasonal dishes' },
+      { name: 'Spice Orange', hex: '#C96C2A', meaning: 'Chef specials & limited-time experiences' },
+      { name: 'Deep Plum', hex: '#4A2B3D', meaning: 'Premium tasting menus & evening experiences' }
+    ],
+    outcome: "The second Kōji location launched with a six-week reservation waitlist, driven almost entirely by word-of-mouth and editorial attention. Guests connected with the restaurant not because it promised fusion, but because it celebrated craftsmanship, curiosity, and genuine cultural exchange.",
+    impact: ['6-week waitlist at second location', 'Grown almost entirely by word-of-mouth'],
+    lessons: "The best brands don't invent stories — they uncover the ones already simmering beneath the surface. For Kōji, the secret ingredient wasn't geography, it was the shared craft, patience, and joy that have always connected two remarkable food cultures."
+  },
+  {
+    slug: 'amara-studio', name: 'Amara Studio', industry: 'Fashion / Lifestyle', year: '2024', scope: 'Strategy, Identity, Packaging',
+    tagline: 'Resortwear for people who read the label.',
+    accent: '#A85C32', palette: ['#A85C32', '#F7F5F2', '#111111', '#C8C6C2'],
+    background: "Amara Studio makes small-batch resortwear from deadstock fabric, sold direct through a single seasonal drop.",
+    challenge: "The founder had a loyal following on Instagram and no brand beyond it — everything from packaging to pricing felt improvised.",
+    research: "A look at the wider resortwear market showed two lanes: loud maximalism or generic minimalism. Neither matched how customers actually talked about the clothes — considered, unhurried.",
+    strategy: "Build a quieter kind of desirability. Let the fabric and the fit carry the story; keep everything else out of the way.",
+    identityDesc: "A soft serif wordmark paired with a warm, sun-bleached palette. Packaging uses undyed paper stock — the same restraint as the clothing.",
+    applications: ['Garment Tags', 'Packaging', 'Lookbook', 'Website'],
+    outcome: "The next seasonal drop sold out in nine days, down from a six-week runway. Press coverage shifted from 'affordable basics' to 'quietly elevated.'",
+    impact: ['Sold out in 9 days, down from 6 weeks', "Press repositioning to 'quietly elevated'"],
+    lessons: "Sometimes the strategic move is to say less, more expensively."
+  },
+  {
+    slug: 'vantra', name: 'Vantra', industry: 'Fintech', year: '2025', scope: 'Strategy, Identity, Product',
+    tagline: 'Banking software small business owners trust.',
+    accent: '#2A2F6B', palette: ['#2A2F6B', '#F7F5F2', '#111111', '#C8C6C2'],
+    background: "Vantra gives small business owners in Lagos and Nairobi a way to save, borrow, and track cash flow from one app.",
+    challenge: "Early users associated the product with predatory lending apps in the same category — trust, not features, was the barrier.",
+    research: "Interviews with shop owners revealed they wanted a bank that felt like a bank: steady, a little formal, not trying to be their friend.",
+    strategy: "Borrow the visual seriousness of traditional finance and pair it with software that's actually usable. Confidence over friendliness.",
+    identityDesc: "A structured wordmark set in a single deep indigo, built to hold its own on a receipt printer or a billboard.",
+    applications: ['App Icon', 'Statements', 'Signage', 'Onboarding'],
+    outcome: "Uninstall rates dropped in the months after the rebrand, and 'trustworthy' appeared in user reviews for the first time.",
+    impact: ['Uninstalls dropped post-rebrand', "'Trustworthy' entered user reviews"],
+    lessons: "In finance, credibility is a design decision before it's a marketing one."
+  },
+  {
+    slug: 'selah', name: 'Selah', industry: 'Wellness / Health', year: '2026', scope: 'Strategy, Identity, Digital',
+    tagline: "Therapy that doesn't perform calm.",
+    accent: '#7C8B6F', palette: ['#7C8B6F', '#F7F5F2', '#111111', '#C8C6C2'],
+    background: "Selah connects clients with licensed therapists through a small studio and a companion app for scheduling and journaling.",
+    challenge: "Every competitor used the same soft gradients and stock serenity — the category had made calm feel generic.",
+    research: "Clients said the sameness made providers feel interchangeable, and made it harder to trust any one of them specifically.",
+    strategy: "Trade decorative calm for structural calm — quiet through restraint and space, not through pastel color.",
+    identityDesc: "A grounded wordmark in a muted sage, paired with generous white space that does the emotional work color usually does elsewhere.",
+    applications: ['App', 'Studio Signage', 'Intake Materials', 'Website'],
+    outcome: "Session no-show rates dropped, and referral bookings — the hardest metric to move in this category — increased.",
+    impact: ['Fewer session no-shows', 'Referral bookings increased'],
+    lessons: "Restraint can be a differentiator in categories where everyone else is being loud about being calm."
+  }
+];
+
+const INDUSTRY_LIST = ['Tech & Logistics', 'Fashion & Lifestyle', 'Fintech', 'Hospitality & Food', 'Wellness & Health'];
+
+const PHILOSOPHY_LIST = [
+  { indexLabel: '01', title: 'Simplicity', desc: 'Reduce everything to its essential form — no unnecessary effects, no visual noise.' },
+  { indexLabel: '02', title: 'Clarity', desc: 'Information hierarchy always comes first. You should never wonder where to look.' },
+  { indexLabel: '03', title: 'Timelessness', desc: 'Avoid visual trends. Design should still feel relevant ten years from now.' }
+];
+
+const SECTION_NAMES = ['background', 'challenge', 'research', 'strategy', 'identity', 'applications', 'outcome', 'lessons'];
+
+const VISIBLE_SLUGS = ['fielo', 'koji'];
