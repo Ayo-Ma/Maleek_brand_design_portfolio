@@ -9,12 +9,14 @@
 }
 
 * { box-sizing: border-box; }
+html { overflow-x: hidden; }
 body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 a { color: var(--accent); text-decoration: none; }
 a:hover { color: var(--ink); }
@@ -104,6 +106,25 @@ button { font: inherit; }
   text-transform: inherit;
 }
 .nav-contact:hover { background: var(--accent); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+  margin: -8px 0;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 200ms var(--ease), opacity 200ms var(--ease);
+}
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -773,4 +794,43 @@ button { font: inherit; }
   .case-body { flex-direction: column; }
   .case-nav { position: static; flex-direction: row; flex-wrap: wrap; width: 100%; gap: 20px 28px; }
   .coming-soon { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 8px clamp(24px, 6vw, 80px) 20px;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 200ms var(--ease), transform 200ms var(--ease);
+  }
+  .nav-links.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .nav-links .nav-link {
+    width: 100%;
+    text-align: left;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links .nav-contact {
+    margin-top: 12px;
+    border-bottom: none;
+    text-align: center;
+  }
+  .nav-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 }
