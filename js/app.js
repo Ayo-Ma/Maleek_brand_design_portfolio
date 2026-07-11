@@ -153,15 +153,10 @@
     document.getElementById('about-portrait').innerHTML = media(s.aboutPortraitUrl, { rounded: 20, hint: 'Drop a portrait here', alt: 'Portrait' });
 
     document.getElementById('services-lead').textContent = s.servicesLead;
-    document.getElementById('services-list').innerHTML = s.servicesList.map(function (item, i) {
-      var tags = (item.tags || []).map(function (t) { return '<span>' + escapeHtml(t) + '</span>'; }).join('');
-      return '<div class="service-card">' +
-        '<div class="service-media">' + media(item.imageUrl, { rounded: 14, hint: item.title, alt: item.title }) + '</div>' +
-        '<div class="service-idx">' + String(i + 1).padStart(2, '0') + '</div>' +
-        '<div class="service-title">' + escapeHtml(item.title) + '</div>' +
-        '<div class="service-desc">' + escapeHtml(item.desc) + '</div>' +
-        '<div class="service-tags">' + tags + '</div>' +
-        '</div>';
+    document.getElementById('services-list').innerHTML = s.servicesList.map(function (item, i, arr) {
+      var isLast = i === arr.length - 1;
+      return '<div class="row"' + (isLast ? ' style="border-bottom:1px solid var(--border);"' : '') + '>' +
+        '<h3>' + escapeHtml(item.title) + '</h3><p>' + escapeHtml(item.desc) + '</p></div>';
     }).join('');
 
     document.getElementById('contact-lead').textContent = s.contactLead;

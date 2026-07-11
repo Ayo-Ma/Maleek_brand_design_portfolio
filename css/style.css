@@ -759,34 +759,11 @@ button { font: inherit; }
 .services-page { padding-top: 128px; padding-bottom: 96px; }
 .services-page h1 { font-size: 64px; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 16px; }
 .services-page > .wrap > p.lead { font-size: 18px; color: var(--muted); margin: 0 0 64px; max-width: 52ch; }
-.services-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
-  gap: 32px;
-  margin-bottom: 96px;
-}
-.service-card {
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-}
-.service-media { width: 100%; aspect-ratio: 16/10; border-radius: 14px; overflow: hidden; margin-bottom: 24px; }
-.service-idx { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); margin-bottom: 12px; }
-.service-title { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 10px; }
-.service-desc { font-size: 15px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
-.service-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
-.service-tags span {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--accent);
-  background: rgba(18, 59, 99, 0.08);
-  border-radius: 20px;
-  padding: 5px 12px;
-}
+.services-list { margin-bottom: 96px; }
+.services-list .row { border-top: 1px solid var(--border); padding: 32px 0; }
+.services-list .row:last-child { border-bottom: 1px solid var(--border); }
+.services-list h3 { font-size: 22px; font-weight: 600; margin: 0 0 8px; }
+.services-list p { font-size: 16px; color: var(--muted); line-height: 1.6; margin: 0; max-width: 56ch; }
 .process-title { font-size: 36px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 40px; }
 .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 32px 40px; margin-bottom: 96px; }
 .process-grid .idx { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); margin-bottom: 8px; }
@@ -883,8 +860,6 @@ button { font: inherit; }
 
   .services-page { padding-top: 64px; padding-bottom: 48px; }
   .services-page h1 { font-size: 40px; }
-  .services-page > .wrap > p.lead { margin-bottom: 48px; }
-  .services-list { gap: 20px; margin-bottom: 64px; }
   .process-title { font-size: 26px; }
 
   .contact-page { padding-top: 64px; padding-bottom: 96px; }
