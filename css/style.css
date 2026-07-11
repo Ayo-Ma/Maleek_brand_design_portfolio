@@ -17,6 +17,7 @@ body {
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
+  padding:0 20px;q
 }
 a { color: var(--accent); text-decoration: none; }
 a:hover { color: var(--ink); }
@@ -816,7 +817,7 @@ button { font: inherit; }
     gap: 0;
     background: var(--bg);
     border-bottom: 1px solid var(--border);
-    padding: 8px clamp(24px, 6vw, 80px) 20px;
+    padding:0  20px;
     opacity: 0;
     transform: translateY(-8px);
     pointer-events: none;
