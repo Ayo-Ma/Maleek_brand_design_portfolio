@@ -154,16 +154,13 @@
 
     document.getElementById('services-lead').textContent = s.servicesLead;
     document.getElementById('services-list').innerHTML = s.servicesList.map(function (item, i) {
-      var top = 88 + i * 14;
-      var tags = (item.tags || []).map(escapeHtml).join('<br>');
-      return '<div class="service-card" style="top:' + top + 'px;z-index:' + (5 + i) + '">' +
-        '<div class="service-card-inner">' +
+      var tags = (item.tags || []).map(function (t) { return '<span>' + escapeHtml(t) + '</span>'; }).join('');
+      return '<div class="service-card">' +
+        '<div class="service-media">' + media(item.imageUrl, { rounded: 14, hint: item.title, alt: item.title }) + '</div>' +
         '<div class="service-idx">' + String(i + 1).padStart(2, '0') + '</div>' +
         '<div class="service-title">' + escapeHtml(item.title) + '</div>' +
-        '<div class="service-tags">' + tags + '</div>' +
         '<div class="service-desc">' + escapeHtml(item.desc) + '</div>' +
-        '<div class="service-media">' + media(item.imageUrl, { rounded: 16, hint: item.title, alt: item.title }) + '</div>' +
-        '</div>' +
+        '<div class="service-tags">' + tags + '</div>' +
         '</div>';
     }).join('');
 
