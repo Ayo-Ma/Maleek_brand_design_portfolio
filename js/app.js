@@ -1,7 +1,8 @@
 (function () {
   'use strict';
 
-  var visibleProjects = PROJECTS.filter(function (p) { return VISIBLE_SLUGS.indexOf(p.slug) !== -1; });
+  var CONTENT = null; // populated by init() before first render
+  var visibleProjects = [];
 
   var state = {
     page: 'home',
@@ -34,9 +35,22 @@
     return '<div class="' + cls + '">' + hint + '</div>';
   }
 
+  // Renders a real photo when a Sanity asset URL is available, otherwise the
+  // placeholder "drop an image" slot. Used for every image-bearing area on the
+  // site so assets appear automatically as soon as they're added in Sanity.
+  function media(url, opts) {
+    opts = opts || {};
+    if (url) {
+      var cls = opts.bg ? 'media-bg' : 'media-fill';
+      if (opts.rounded) cls += ' rounded-' + opts.rounded;
+      return '<img class="' + cls + '" src="' + url + '" alt="' + (opts.alt ? escapeHtml(opts.alt) : '') + '" loading="lazy">';
+    }
+    return imgSlot(opts);
+  }
+
   function escapeHtml(str) {
     var div = document.createElement('div');
-    div.textContent = str;
+    div.textContent = str == null ? '' : str;
     return div.innerHTML;
   }
 
@@ -107,31 +121,84 @@
     window.scrollTo(0, 0);
   }
 
+  // ---------- Site-wide copy (site settings) ----------
+  var siteSettingsRendered = false;
+
+  function renderSiteSettings() {
+    if (siteSettingsRendered) return;
+    siteSettingsRendered = true;
+    var s = CONTENT.settings;
+
+    document.getElementById('hero-eyebrow').textContent = s.heroEyebrow;
+    document.getElementById('hero-title').innerHTML = escapeHtml(s.heroTitle) + ' <span>' + escapeHtml(s.heroTitleAccent) + '</span>';
+    document.getElementById('hero-subtitle').textContent = s.heroSubtitle;
+
+    document.getElementById('teaser-kicker').textContent = s.aboutTeaserKicker;
+    document.getElementById('teaser-title').innerHTML = escapeHtml(s.aboutTeaserTitle) + '<br><span class="dim">' + escapeHtml(s.aboutTeaserTitleDim) + '</span>';
+    document.getElementById('teaser-body').textContent = s.aboutTeaserBody;
+    document.getElementById('teaser-note').textContent = s.aboutTeaserNote;
+    document.getElementById('teaser-visual').innerHTML = media(s.homePortraitUrl, { rounded: 20, hint: 'Drop a portrait here', alt: 'Portrait' }) +
+      document.getElementById('teaser-visual').querySelector('.about-teaser-note').outerHTML;
+
+    document.getElementById('philosophy-kicker').textContent = s.philosophyKicker;
+    document.getElementById('philosophy-title').innerHTML = escapeHtml(s.philosophyTitle) + '<br><span class="dim">' + escapeHtml(s.philosophyTitleDim) + '</span>';
+    document.getElementById('philosophy-intro').textContent = s.philosophyIntro;
+
+    document.getElementById('about-lead').textContent = s.aboutLead;
+    document.getElementById('about-body').textContent = s.aboutBody;
+    document.getElementById('about-traits').textContent = s.aboutTraits;
+    document.getElementById('about-quote-text').textContent = s.aboutQuoteText;
+    document.getElementById('about-quote-cite').textContent = s.aboutQuoteCite;
+    document.getElementById('about-location').textContent = s.aboutLocation;
+    document.getElementById('about-portrait').innerHTML = media(s.aboutPortraitUrl, { rounded: 20, hint: 'Drop a portrait here', alt: 'Portrait' });
+
+    document.getElementById('services-lead').textContent = s.servicesLead;
+    document.getElementById('services-list').innerHTML = s.servicesList.map(function (item, i, arr) {
+      var isLast = i === arr.length - 1;
+      return '<div class="row"' + (isLast ? ' style="border-bottom:1px solid var(--border);"' : '') + '>' +
+        '<h3>' + escapeHtml(item.title) + '</h3><p>' + escapeHtml(item.desc) + '</p></div>';
+    }).join('');
+
+    document.getElementById('contact-lead').textContent = s.contactLead;
+    var emailEl = document.getElementById('contact-email');
+    emailEl.textContent = s.contactEmail;
+    emailEl.href = 'mailto:' + s.contactEmail;
+    document.getElementById('contact-socials').innerHTML = s.contactSocials.map(function (soc) {
+      return '<a href="' + escapeHtml(soc.url) + '">' + escapeHtml(soc.label) + '</a>';
+    }).join('');
+    document.getElementById('contact-status').textContent = s.contactStatus;
+
+    document.getElementById('footer-role').textContent = s.footerRole;
+    document.getElementById('footer-copy').textContent = s.footerCopyright;
+  }
+
   // ---------- Home ----------
   var homeInitialized = false;
 
   function initHomeStatic() {
     if (homeInitialized) return;
     homeInitialized = true;
+    var s = CONTENT.settings;
 
     var industriesRow = document.getElementById('industries-row');
-    industriesRow.innerHTML = INDUSTRY_LIST.map(function (ind) {
+    industriesRow.innerHTML = s.industries.map(function (ind) {
       return '<span>' + escapeHtml(ind) + '</span>';
     }).join('');
 
     var philosophyGrid = document.getElementById('philosophy-grid');
-    philosophyGrid.innerHTML = PHILOSOPHY_LIST.map(function (p) {
+    philosophyGrid.innerHTML = s.philosophyItems.map(function (p, i) {
       return '<div class="philosophy-card">' +
-        '<div class="idx">' + p.indexLabel + '</div>' +
+        '<div class="idx">' + String(i + 1).padStart(2, '0') + '</div>' +
         '<div class="title">' + escapeHtml(p.title) + '</div>' +
         '<div class="desc">' + escapeHtml(p.desc) + '</div>' +
         '</div>';
     }).join('');
 
     var feedGrid = document.getElementById('feed-grid');
+    var feedCount = Math.max(8, s.feedImageUrls.length);
     var feedHtml = '';
-    for (var i = 0; i < 8; i++) {
-      feedHtml += '<div class="feed-tile">' + imgSlot({ hint: 'Drop a post or flyer' }) + '</div>';
+    for (var i = 0; i < feedCount; i++) {
+      feedHtml += '<div class="feed-tile">' + media(s.feedImageUrls[i], { hint: 'Drop a post or flyer', alt: 'Feed post' }) + '</div>';
     }
     feedGrid.innerHTML = feedHtml;
 
@@ -156,7 +223,7 @@
       row.addEventListener('click', function () {
         navigate('case', slug);
       });
-      var tint = PROJECTS.find(function (p) { return p.slug === slug; }).accent + '17';
+      var tint = visibleProjects.find(function (p) { return p.slug === slug; }).accent + '17';
       row.addEventListener('mouseenter', function () { row.style.background = tint; });
       row.addEventListener('mouseleave', function () { row.style.background = 'transparent'; });
     });
@@ -203,7 +270,7 @@
     tilesEl.innerHTML = visibleProjects.map(function (p, i) {
       return '<div class="work-tile" data-slug="' + p.slug + '">' +
         '<div class="work-tile-inner" style="background:' + p.accent + '">' +
-        '<div class="work-tile-bg">' + imgSlot({ bg: true }) + '</div>' +
+        '<div class="work-tile-bg">' + media(p.tileBackgroundUrl, { bg: true, alt: p.name }) + '</div>' +
         '<div class="work-tile-tint" style="background:' + p.accent + '"></div>' +
         '<div class="work-tile-panel">' +
         '<div class="work-tile-name">' + escapeHtml(p.name) + '</div>' +
@@ -266,19 +333,21 @@
   }
 
   // ---------- Case study page ----------
+  var lightboxUrl = null;
+
   function renderCase(slug) {
-    var project = PROJECTS.find(function (p) { return p.slug === slug; });
+    var project = CONTENT.projects.find(function (p) { return p.slug === slug; });
     var container = document.getElementById('case-content');
     if (!project) {
       container.innerHTML = '<p>Project not found.</p>';
       return;
     }
 
-    var idx = PROJECTS.indexOf(project);
-    var nextProject = PROJECTS[(idx + 1) % PROJECTS.length];
+    var idx = CONTENT.projects.indexOf(project);
+    var nextProject = CONTENT.projects[(idx + 1) % CONTENT.projects.length];
 
     var hasExtended = !!project.extendedIdentity;
-    var isFielo = project.slug === 'fielo';
+    var isFielo = !!project.fieloApps;
     var hasLogoImage = !!project.logoImage;
 
     var html = '';
@@ -287,7 +356,7 @@
     html += '<p class="case-tagline">' + escapeHtml(project.tagline) + '</p>';
 
     html += '<div class="case-hero" id="case-hero" style="background:' + project.accent + '">';
-    html += '<div class="work-tile-bg">' + imgSlot({ bg: true }) + '</div>';
+    html += '<div class="work-tile-bg">' + media(project.caseHeroBackgroundUrl, { bg: true, alt: project.name }) + '</div>';
     html += '<div class="case-hero-tint" style="background:' + project.accent + '"></div>';
     if (hasLogoImage) {
       html += '<img class="case-hero-logo" id="case-hero-visual" src="' + project.logoImage + '" alt="' + escapeHtml(project.name) + ' logo">';
@@ -323,7 +392,7 @@
         '<span class="dot" style="background:' + project.accent + '"></span></div>';
     }
     html += '</div>';
-    html += '<div class="palette-row">' + project.palette.map(function (hex) {
+    html += '<div class="palette-row">' + (project.palette || []).map(function (hex) {
       return '<div class="swatch" style="background:' + hex + '"><span class="hex-tip">' + hex + '</span></div>';
     }).join('') + '</div>';
 
@@ -338,7 +407,7 @@
         '</div>';
 
       html += '<div class="mini-label mb-20">Color Palette</div>';
-      html += '<div class="color-grid">' + ext.palette.map(function (c) {
+      html += '<div class="color-grid">' + (ext.palette || []).map(function (c) {
         return '<div class="color-card"><div class="swatch-fill" style="background:' + c.hex + '"></div>' +
           '<div class="swatch-info"><div class="name">' + escapeHtml(c.name) + '</div><div class="hex">' + c.hex + ' · ' + escapeHtml(c.meaning) + '</div></div></div>';
       }).join('') + '</div>';
@@ -359,11 +428,10 @@
 
       html += '<div class="mini-label">Photography</div>';
       html += '<p class="body-copy">' + escapeHtml(ext.photography) + '</p>';
-      html += '<div class="photo-grid">' +
-        '<div class="tile">' + imgSlot({ hint: 'Fleet / drivers' }) + '</div>' +
-        '<div class="tile">' + imgSlot({ hint: 'Warehouse' }) + '</div>' +
-        '<div class="tile">' + imgSlot({ hint: 'Operations' }) + '</div>' +
-        '</div>';
+      var photoHints = ['Fleet / drivers', 'Warehouse', 'Operations'];
+      html += '<div class="photo-grid">' + photoHints.map(function (hint, i) {
+        return '<div class="tile">' + media((ext.photoUrls || [])[i], { hint: hint, alt: hint }) + '</div>';
+      }).join('') + '</div>';
 
       html += '<div class="mini-label">Tone of Voice</div>';
       html += '<p class="tone-quote">' + escapeHtml(ext.toneOfVoice) + '</p>';
@@ -376,34 +444,35 @@
     html += '<h2>Applications</h2>';
 
     if (isFielo) {
+      var fa = project.fieloApps;
       html += '<div class="fielo-apps-grid">';
-      html += '<div class="fielo-app-card" data-lightbox="fielo-app-bg-businesscard" style="background:#123B63">' +
-        '<div class="bg">' + imgSlot({ bg: true }) + '</div>' +
+      html += '<div class="fielo-app-card" data-lightbox-url="' + escapeHtml(fa.businessCardImageUrl || '') + '" style="background:#123B63">' +
+        '<div class="bg">' + media(fa.businessCardImageUrl, { bg: true, alt: 'Business card' }) + '</div>' +
         '<div class="tint" style="background:#123B6399"></div>' +
         '<div class="content">' +
         (project.logomarkImage ? '<img class="mark" src="' + project.logomarkImage + '" alt="">' : '') +
-        '<div><div class="card-name">Ada Chen</div><div class="card-role">Fleet Operations Lead — fielo.com</div></div>' +
+        '<div><div class="card-name">' + escapeHtml(fa.contactName) + '</div><div class="card-role">' + escapeHtml(fa.contactRole) + '</div></div>' +
         '</div>' +
         '<div class="label-tag" style="bottom:-12px;right:-12px;opacity:0.15;">Business Card</div>' +
         '</div>';
-      html += '<div class="fielo-app-card" data-lightbox="fielo-app-bg-livery" style="background:#2B6CB0">' +
-        '<div class="bg">' + imgSlot({ bg: true }) + '</div>' +
+      html += '<div class="fielo-app-card" data-lightbox-url="' + escapeHtml(fa.liveryImageUrl || '') + '" style="background:#2B6CB0">' +
+        '<div class="bg">' + media(fa.liveryImageUrl, { bg: true, alt: 'Vehicle livery' }) + '</div>' +
         '<div class="tint" style="background:#2B6CB099"></div>' +
         '<div class="content center">' +
         (hasLogoImage ? '<img src="' + project.logoImage + '" style="width:55%;height:44px;object-fit:contain;filter:brightness(0) invert(1);position:relative;z-index:2;" alt="">' : '') +
         '</div>' +
         '<div class="label-tag" style="bottom:16px;left:32px;opacity:0.7;">Vehicle Livery</div>' +
         '</div>';
-      html += '<div class="fielo-app-card" data-lightbox="fielo-app-bg-dashboard" style="background:#F7F5F2;border:1px solid #E8E8E5;">' +
-        '<div class="bg">' + imgSlot({ bg: true }) + '</div>' +
+      html += '<div class="fielo-app-card" data-lightbox-url="' + escapeHtml(fa.dashboardImageUrl || '') + '" style="background:#F7F5F2;border:1px solid #E8E8E5;">' +
+        '<div class="bg">' + media(fa.dashboardImageUrl, { bg: true, alt: 'Dashboard' }) + '</div>' +
         '<div class="tint" style="background:#F7F5F2CC;opacity:0.57;"></div>' +
         '</div>';
-      html += '<div class="fielo-app-card" data-lightbox="fielo-app-bg-pitchdeck" style="background:#111111">' +
-        '<div class="bg">' + imgSlot({ bg: true }) + '</div>' +
+      html += '<div class="fielo-app-card" data-lightbox-url="' + escapeHtml(fa.pitchDeckImageUrl || '') + '" style="background:#111111">' +
+        '<div class="bg">' + media(fa.pitchDeckImageUrl, { bg: true, alt: 'Pitch deck' }) + '</div>' +
         '<div class="tint" style="background:#111111AA;opacity:0.66;"></div>' +
         '<div class="content">' +
         (project.logomarkImage ? '<img class="mark" src="' + project.logomarkImage + '" alt="">' : '') +
-        '<div class="pitch-copy">Built for the operator, not the analyst.</div>' +
+        '<div class="pitch-copy">' + escapeHtml(fa.pitchCopy) + '</div>' +
         '</div>' +
         '<div class="label-tag" style="bottom:16px;right:20px;opacity:0.5;">Pitch Deck</div>' +
         '</div>';
@@ -411,8 +480,9 @@
     }
 
     html += '<div class="apps-grid">' + project.applications.map(function (label, i) {
-      return '<div class="app-tile" data-lightbox="' + project.slug + '-app-' + i + '" style="background:' + hexToRgba(project.accent, 0.08) + ';border:1px solid ' + hexToRgba(project.accent, 0.2) + ';">' +
-        '<div class="bg">' + imgSlot({ bg: true }) + '</div>' +
+      var url = (project.applicationImageUrls || [])[i];
+      return '<div class="app-tile" data-lightbox-url="' + escapeHtml(url || '') + '" style="background:' + hexToRgba(project.accent, 0.08) + ';border:1px solid ' + hexToRgba(project.accent, 0.2) + ';">' +
+        '<div class="bg">' + media(url, { bg: true, alt: label }) + '</div>' +
         '<div class="app-label">' + escapeHtml(label) + '</div>' +
         '</div>';
     }).join('') + '</div>';
@@ -422,7 +492,7 @@
     html += '<div class="case-block" data-section="outcome">';
     html += '<h2>Outcome</h2>';
     html += '<div class="outcome-card"><p>' + escapeHtml(project.outcome) + '</p>';
-    html += '<div class="outcome-impact">' + project.impact.map(function (point) {
+    html += '<div class="outcome-impact">' + (project.impact || []).map(function (point) {
       return '<span>' + escapeHtml(point) + '</span>';
     }).join('') + '</div></div>';
     html += '</div>';
@@ -459,8 +529,8 @@
       });
     });
 
-    container.querySelectorAll('[data-lightbox]').forEach(function (el) {
-      el.addEventListener('click', function () { openLightbox(); });
+    container.querySelectorAll('[data-lightbox-url]').forEach(function (el) {
+      el.addEventListener('click', function () { openLightbox(el.getAttribute('data-lightbox-url')); });
     });
 
     // Hero parallax
@@ -519,9 +589,14 @@
 
   // ---------- Lightbox ----------
   var lightbox = document.getElementById('lightbox');
+  var lightboxInner = document.getElementById('lightbox-inner');
   var lightboxClose = document.getElementById('lightbox-close');
 
-  function openLightbox() { lightbox.classList.add('open'); }
+  function openLightbox(url) {
+    lightboxUrl = url || null;
+    lightboxInner.innerHTML = media(lightboxUrl, { bg: true, alt: '' });
+    lightbox.classList.add('open');
+  }
   function closeLightbox() { lightbox.classList.remove('open'); }
 
   lightbox.addEventListener('click', function (e) {
@@ -536,6 +611,7 @@
     state.slug = route.slug;
 
     updateNavActive(route.page);
+    renderSiteSettings();
     showPage(route.page);
 
     if (route.page === 'home') initHomeStatic();
@@ -543,5 +619,11 @@
     if (route.page === 'case') renderCase(route.slug);
   }
 
-  render();
+  // ---------- Init ----------
+  window.loadSiteContent().then(function (content) {
+    CONTENT = content;
+    visibleProjects = CONTENT.projects.filter(function (p) { return p.visibleOnWork; });
+    if (visibleProjects.length === 0) visibleProjects = CONTENT.projects.slice(0, 2);
+    render();
+  });
 })();

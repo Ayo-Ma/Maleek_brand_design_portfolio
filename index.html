@@ -26,29 +26,29 @@
 <!-- ============ HOME ============ -->
 <main class="page" id="page-home" data-screen="home">
   <section class="hero wrap">
-    <div class="eyebrow">Maleek — Brand Strategist &amp; Designer</div>
-    <h1>Strategy before <span>design.</span></h1>
-    <p>I help ambitious businesses build brands people actually remember — starting with why, not what it looks like.</p>
+    <div class="eyebrow" id="hero-eyebrow"></div>
+    <h1 id="hero-title"></h1>
+    <p id="hero-subtitle"></p>
   </section>
 
   <section class="about-teaser wrap">
     <div class="about-teaser-grid">
       <div class="about-teaser-card">
         <div>
-          <div class="kicker">About the strategist</div>
-          <h2>Strategy first.<br><span class="dim">Always.</span></h2>
-          <p>I build brand systems from a clear strategic foundation — combining rigorous positioning work with restrained, precise design so identities hold up under scrutiny.</p>
+          <div class="kicker" id="teaser-kicker"></div>
+          <h2 id="teaser-title"></h2>
+          <p id="teaser-body"></p>
         </div>
         <div class="about-teaser-actions">
           <button class="btn btn-light" data-nav="about">More about me</button>
           <button class="btn btn-outline" data-nav="services">See services</button>
         </div>
       </div>
-      <div class="about-teaser-visual">
+      <div class="about-teaser-visual" id="teaser-visual">
         <div class="img-slot rounded-20"><span class="img-slot-hint">Drop a portrait here</span></div>
         <div class="about-teaser-note">
           <div class="dot"></div>
-          <div class="txt">Currently taking on full-rebrand engagements — strategy through applications.</div>
+          <div class="txt" id="teaser-note"></div>
         </div>
       </div>
     </div>
@@ -60,9 +60,9 @@
   </section>
 
   <section class="philosophy wrap">
-    <div class="label">My philosophy</div>
-    <h2>Strategist-led.<br><span class="dim">Built on restraint.</span></h2>
-    <p>I don't just create visuals — I build systems, grounded in strategy, so every decision earns its place.</p>
+    <div class="label" id="philosophy-kicker"></div>
+    <h2 id="philosophy-title"></h2>
+    <p id="philosophy-intro"></p>
     <div class="philosophy-grid" id="philosophy-grid"></div>
   </section>
 
@@ -109,16 +109,16 @@
     <h1>About</h1>
     <div class="about-grid">
       <div>
-        <p class="lead">I'm Maleek, a brand strategist and designer working with ambitious founders across Africa and beyond. I spend most of my time asking why before I touch how something looks.</p>
-        <p class="body">My approach comes from a simple belief: design that isn't grounded in strategy is just decoration. Every project starts with research, not references.</p>
-        <div class="about-traits">Confident · Calm · Intelligent · Curious · Precise</div>
+        <p class="lead" id="about-lead"></p>
+        <p class="body" id="about-body"></p>
+        <div class="about-traits" id="about-traits"></div>
         <div class="about-quote">
-          <div class="q">"Remove before adding."</div>
-          <div class="cite">— a rule I apply to every brief, including this bio.</div>
+          <div class="q" id="about-quote-text"></div>
+          <div class="cite" id="about-quote-cite"></div>
         </div>
-        <div class="about-location">Based in Lagos, working with clients everywhere. Currently open for new projects.</div>
+        <div class="about-location" id="about-location"></div>
       </div>
-      <div class="about-portrait">
+      <div class="about-portrait" id="about-portrait">
         <div class="img-slot rounded-20"><span class="img-slot-hint">Drop a portrait here</span></div>
       </div>
     </div>
@@ -149,15 +149,9 @@
 <main class="page" id="page-services" data-screen="services">
   <div class="services-page wrap">
     <h1>Services</h1>
-    <p class="lead">Strategy-first branding for founders who need their business understood before it's admired.</p>
+    <p class="lead" id="services-lead"></p>
 
-    <div class="services-list">
-      <div class="row"><h3>Brand Strategy</h3><p>Positioning, messaging, and the strategic groundwork every other decision depends on.</p></div>
-      <div class="row"><h3>Naming</h3><p>Names that are ownable, sayable, and built to survive a trademark search.</p></div>
-      <div class="row"><h3>Identity Design</h3><p>Wordmarks and visual systems built on typography, not decoration.</p></div>
-      <div class="row"><h3>Brand Systems</h3><p>Guidelines, grids, and rules that let a brand grow without falling apart.</p></div>
-      <div class="row"><h3>Applications</h3><p>Everything from business cards to product UI, designed to carry the strategy through.</p></div>
-    </div>
+    <div class="services-list" id="services-list"></div>
 
     <h2 class="process-title">How every project runs</h2>
     <div class="process-grid">
@@ -179,23 +173,19 @@
 <main class="page" id="page-contact" data-screen="contact">
   <div class="contact-page wrap">
     <h1>Let's talk.</h1>
-    <p class="lead">Tell me about the business problem you're trying to solve — I'll tell you if design can help.</p>
-    <a href="mailto:hello@maleek.design" class="btn btn-dark btn-xl email-btn">hello@maleek.design</a>
-    <div class="contact-socials">
-      <a href="#">LinkedIn</a>
-      <a href="#">Instagram</a>
-      <a href="#">X / Twitter</a>
-    </div>
-    <div class="contact-status">Currently booking projects for Q4 2026.</div>
+    <p class="lead" id="contact-lead"></p>
+    <a href="mailto:hello@maleek.design" class="btn btn-dark btn-xl email-btn" id="contact-email"></a>
+    <div class="contact-socials" id="contact-socials"></div>
+    <div class="contact-status" id="contact-status"></div>
   </div>
 </main>
 
 <footer class="footer">
   <div class="footer-brand">
     <span>maleek</span><span class="dot"></span>
-    <span class="role">Brand Strategist &amp; Designer</span>
+    <span class="role" id="footer-role"></span>
   </div>
-  <div class="footer-copy">© 2026 Maleek. All rights reserved.</div>
+  <div class="footer-copy" id="footer-copy"></div>
 </footer>
 
 <div class="lightbox" id="lightbox">
@@ -206,6 +196,7 @@
 </div>
 
 <script src="./js/data.js"></script>
+<script src="./js/sanity-client.js"></script>
 <script src="./js/app.js"></script>
 </body>
 </html>

@@ -181,6 +181,10 @@ button { font: inherit; }
 .img-slot.on-dark { background: linear-gradient(135deg, rgba(247,245,242,0.06), rgba(247,245,242,0.12)); }
 .img-slot.on-dark::before { background-image: repeating-linear-gradient(45deg, rgba(247,245,242,0.05) 0, rgba(247,245,242,0.05) 1px, transparent 1px, transparent 14px); }
 
+/* Real photos, once added in Sanity, replace .img-slot placeholders 1:1 */
+.media-fill { width: 100%; height: 100%; object-fit: cover; }
+.media-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
 .rounded-20 { border-radius: 20px; }
 .rounded-14 { border-radius: 14px; }
 .rounded-12 { border-radius: 12px; }

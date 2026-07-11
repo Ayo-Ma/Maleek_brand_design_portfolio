@@ -2,6 +2,7 @@
 const PROJECTS = [
   {
     slug: 'fielo', name: 'Fielo', industry: 'Tech / Logistics', year: '2024', scope: 'Strategy, Identity, Digital',
+    visibleOnWork: true,
     tagline: 'Fleet software that founders actually understand.',
     accent: '#1D4ED8', palette: ['#1D4ED8', '#0F172A', '#22C55E', '#FFFFFF'],
     background: "Fielo builds fleet management software that gives mid-sized trucking companies real-time visibility into their vehicles, fuel usage, driver activity, and operational performance. After three years of product development, the platform had earned customer trust, but its brand failed to reflect the simplicity and reliability of the software. The company needed an identity that matched its practical, operator-first approach rather than another generic logistics technology startup.",
@@ -27,6 +28,11 @@ const PROJECTS = [
       toneOfVoice: "Plainspoken, confident, practical, and helpful."
     },
     applications: ['Business Cards', 'Fleet Dashboard UI', 'Mobile Driver App', 'Vehicle Livery', 'Sales & Investor Pitch Deck', 'Branded Safety Vests & Uniforms', 'Social Media Assets'],
+    fieloApps: {
+      contactName: 'Ada Chen',
+      contactRole: 'Fleet Operations Lead — fielo.com',
+      pitchCopy: 'Built for the operator, not the analyst.'
+    },
     semanticColors: [
       { name: 'Warning Amber', hex: '#F59E0B', meaning: 'Maintenance & pending actions' },
       { name: 'Alert Red', hex: '#EF4444', meaning: 'Critical faults & errors' },
@@ -38,6 +44,7 @@ const PROJECTS = [
   },
   {
     slug: 'koji', name: 'Kōji', industry: 'Hospitality / Food', year: '2025', scope: 'Brand Strategy, Visual Identity, Restaurant Experience',
+    visibleOnWork: true,
     tagline: 'Where craft meets curiosity.',
     accent: '#5A1E24', palette: ['#5A1E24', '#C49A4A', '#22201D', '#F8F5EF'],
     background: "Kōji is a modern restaurant that celebrates the unexpected harmony between Japanese culinary craftsmanship and West African ingredients — revealing the techniques, traditions, and flavors the two cuisines already share, rather than treating the pairing as a novelty. After building a loyal following with its first location, Kōji prepared to open a second restaurant. The food had evolved into something remarkable, but the brand still leaned too heavily on familiar Japanese aesthetics — the new identity needed to feel as original as the menu itself.",
@@ -125,3 +132,60 @@ const PHILOSOPHY_LIST = [
 const SECTION_NAMES = ['background', 'challenge', 'research', 'strategy', 'identity', 'applications', 'outcome', 'lessons'];
 
 const VISIBLE_SLUGS = ['fielo', 'koji'];
+
+// Fallback/seed copy — used until this content exists in Sanity (see js/sanity-client.js).
+const SITE_SETTINGS = {
+  heroEyebrow: 'Maleek — Brand Strategist & Designer',
+  heroTitle: 'Strategy before',
+  heroTitleAccent: 'design.',
+  heroSubtitle: 'I help ambitious businesses build brands people actually remember — starting with why, not what it looks like.',
+  homePortrait: null,
+
+  aboutTeaserKicker: 'About the strategist',
+  aboutTeaserTitle: 'Strategy first.',
+  aboutTeaserTitleDim: 'Always.',
+  aboutTeaserBody: 'I build brand systems from a clear strategic foundation — combining rigorous positioning work with restrained, precise design so identities hold up under scrutiny.',
+  aboutTeaserNote: 'Currently taking on full-rebrand engagements — strategy through applications.',
+
+  philosophyKicker: 'My philosophy',
+  philosophyTitle: 'Strategist-led.',
+  philosophyTitleDim: 'Built on restraint.',
+  philosophyIntro: "I don't just create visuals — I build systems, grounded in strategy, so every decision earns its place.",
+  philosophyItems: [
+    { title: 'Simplicity', desc: 'Reduce everything to its essential form — no unnecessary effects, no visual noise.' },
+    { title: 'Clarity', desc: 'Information hierarchy always comes first. You should never wonder where to look.' },
+    { title: 'Timelessness', desc: 'Avoid visual trends. Design should still feel relevant ten years from now.' }
+  ],
+
+  industries: ['Tech & Logistics', 'Fashion & Lifestyle', 'Fintech', 'Hospitality & Food', 'Wellness & Health'],
+  feedImages: [],
+
+  aboutLead: "I'm Maleek, a brand strategist and designer working with ambitious founders across Africa and beyond. I spend most of my time asking why before I touch how something looks.",
+  aboutBody: "My approach comes from a simple belief: design that isn't grounded in strategy is just decoration. Every project starts with research, not references.",
+  aboutTraits: 'Confident · Calm · Intelligent · Curious · Precise',
+  aboutQuoteText: '"Remove before adding."',
+  aboutQuoteCite: '— a rule I apply to every brief, including this bio.',
+  aboutLocation: 'Based in Lagos, working with clients everywhere. Currently open for new projects.',
+  aboutPortrait: null,
+
+  servicesLead: "Strategy-first branding for founders who need their business understood before it's admired.",
+  servicesList: [
+    { title: 'Brand Strategy', desc: 'Positioning, messaging, and the strategic groundwork every other decision depends on.' },
+    { title: 'Naming', desc: 'Names that are ownable, sayable, and built to survive a trademark search.' },
+    { title: 'Identity Design', desc: 'Wordmarks and visual systems built on typography, not decoration.' },
+    { title: 'Brand Systems', desc: 'Guidelines, grids, and rules that let a brand grow without falling apart.' },
+    { title: 'Applications', desc: 'Everything from business cards to product UI, designed to carry the strategy through.' }
+  ],
+
+  contactLead: "Tell me about the business problem you're trying to solve — I'll tell you if design can help.",
+  contactEmail: 'hello@maleek.design',
+  contactSocials: [
+    { label: 'LinkedIn', url: '#' },
+    { label: 'Instagram', url: '#' },
+    { label: 'X / Twitter', url: '#' }
+  ],
+  contactStatus: 'Currently booking projects for Q4 2026.',
+
+  footerRole: 'Brand Strategist & Designer',
+  footerCopyright: '© 2026 Maleek. All rights reserved.'
+};
