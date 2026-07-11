@@ -156,7 +156,9 @@
     document.getElementById('services-list').innerHTML = s.servicesList.map(function (item, i, arr) {
       var isLast = i === arr.length - 1;
       return '<div class="row"' + (isLast ? ' style="border-bottom:1px solid var(--border);"' : '') + '>' +
-        '<h3>' + escapeHtml(item.title) + '</h3><p>' + escapeHtml(item.desc) + '</p></div>';
+        '<div class="row-thumb">' + media(item.imageUrl, { rounded: 12, hint: item.title, alt: item.title }) + '</div>' +
+        '<div class="row-body"><h3>' + escapeHtml(item.title) + '</h3><p>' + escapeHtml(item.desc) + '</p></div>' +
+        '</div>';
     }).join('');
 
     document.getElementById('contact-lead').textContent = s.contactLead;

@@ -84,7 +84,9 @@ export default defineType({
           fields: [
             {name: 'title', title: 'Title', type: 'string'},
             {name: 'desc', title: 'Description', type: 'text', rows: 2},
+            {name: 'image', title: 'Thumbnail image', type: 'image', options: {hotspot: true}},
           ],
+          preview: {select: {title: 'title', media: 'image'}},
         },
       ],
     }),

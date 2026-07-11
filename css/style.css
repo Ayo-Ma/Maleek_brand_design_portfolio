@@ -760,8 +760,10 @@ button { font: inherit; }
 .services-page h1 { font-size: 64px; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 16px; }
 .services-page > .wrap > p.lead { font-size: 18px; color: var(--muted); margin: 0 0 64px; max-width: 52ch; }
 .services-list { margin-bottom: 96px; }
-.services-list .row { border-top: 1px solid var(--border); padding: 32px 0; }
+.services-list .row { border-top: 1px solid var(--border); padding: 32px 0; display: flex; gap: 24px; align-items: center; }
 .services-list .row:last-child { border-bottom: 1px solid var(--border); }
+.services-list .row-thumb { width: 96px; height: 96px; border-radius: 12px; overflow: hidden; flex-shrink: 0; }
+.services-list .row-body { flex: 1; min-width: 0; }
 .services-list h3 { font-size: 22px; font-weight: 600; margin: 0 0 8px; }
 .services-list p { font-size: 16px; color: var(--muted); line-height: 1.6; margin: 0; max-width: 56ch; }
 .process-title { font-size: 36px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 40px; }
@@ -860,6 +862,7 @@ button { font: inherit; }
 
   .services-page { padding-top: 64px; padding-bottom: 48px; }
   .services-page h1 { font-size: 40px; }
+  .services-list .row-thumb { width: 64px; height: 64px; }
   .process-title { font-size: 26px; }
 
   .contact-page { padding-top: 64px; padding-bottom: 96px; }
