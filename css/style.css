@@ -17,7 +17,7 @@ body {
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
-  padding:0 20px;q
+  padding:0 20px;
 }
 a { color: var(--accent); text-decoration: none; }
 a:hover { color: var(--ink); }
@@ -856,4 +856,8 @@ button { font: inherit; }
   .about-teaser-actions .btn,
   .about-teaser-actions { width: 100%; }
   .about-teaser-actions .btn { text-align: center; }
+  body{
+
+    padding:16px;
+  }
 }
