@@ -336,7 +336,7 @@ button { font: inherit; }
 }
 .philosophy-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
   gap: 24px;
 }
 .philosophy-card {
@@ -409,7 +409,7 @@ button { font: inherit; }
 /* ---------- How I work ---------- */
 .how-i-work { padding: 0 0 clamp(64px, 10vw, 96px); }
 .how-i-work h2 { font-size: clamp(26px, 3.5vw, 36px); font-weight: 600; letter-spacing: -0.01em; margin: 0 0 40px; }
-.how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
+.how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 40px; }
 .how-grid .idx { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); margin-bottom: 12px; }
 .how-grid .title { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
 .how-grid .desc { font-size: 15px; color: var(--muted); line-height: 1.5; }
@@ -657,12 +657,12 @@ button { font: inherit; }
 .body-copy { font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 60ch; margin: 0 0 20px; }
 .body-copy.mb-56 { margin-bottom: 56px; }
 
-.logo-panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 56px; }
+.logo-panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 16px; margin-bottom: 56px; }
 .logo-panel-light { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 40px; display: flex; align-items: center; justify-content: center; aspect-ratio: 16/10; }
 .logo-panel-dark { background: var(--ink); border-radius: 16px; padding: 40px; display: flex; align-items: center; justify-content: center; aspect-ratio: 16/10; }
 .logo-panel-light img, .logo-panel-dark img { width: 100%; height: 100px; object-fit: contain; }
 
-.color-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-bottom: 56px; }
+.color-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 16px; margin-bottom: 56px; }
 .color-card { cursor: pointer; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); transition: transform 250ms ease-out; }
 .color-card:hover { transform: translateY(-4px); }
 .color-card .swatch-fill { height: 96px; }
@@ -676,7 +676,7 @@ button { font: inherit; }
 
 .tone-quote { font-size: 22px; font-weight: 500; line-height: 1.5; max-width: 44ch; margin: 0; }
 
-.fielo-apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 24px; }
+.fielo-apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 24px; margin-bottom: 24px; }
 .fielo-app-card {
   aspect-ratio: 16/10;
   border-radius: 20px;
@@ -694,7 +694,7 @@ button { font: inherit; }
 .fielo-app-card .card-role { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--bg); opacity: 0.7; text-transform: uppercase; }
 .fielo-app-card .pitch-copy { font-size: clamp(18px, 2.4vw, 26px); font-weight: 600; color: var(--bg); letter-spacing: -0.01em; line-height: 1.25; max-width: 22ch; }
 
-.apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 24px; }
 .app-tile {
   position: relative;
   aspect-ratio: 3/2;
@@ -759,7 +759,7 @@ button { font: inherit; }
 .services-list h3 { font-size: 22px; font-weight: 600; margin: 0 0 8px; }
 .services-list p { font-size: 16px; color: var(--muted); line-height: 1.6; margin: 0; max-width: 56ch; }
 .process-title { font-size: clamp(26px, 3.5vw, 36px); font-weight: 600; letter-spacing: -0.01em; margin: 0 0 40px; }
-.process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px 40px; margin-bottom: 96px; }
+.process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 32px 40px; margin-bottom: 96px; }
 .process-grid .idx { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); margin-bottom: 8px; }
 .process-grid .title { font-size: 16px; font-weight: 500; }
 
@@ -794,6 +794,8 @@ button { font: inherit; }
   .case-body { flex-direction: column; }
   .case-nav { position: static; flex-direction: row; flex-wrap: wrap; width: 100%; gap: 20px 28px; }
   .coming-soon { grid-template-columns: 1fr; }
+  .case-section { grid-template-columns: 1fr; gap: 12px; }
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 640px) {
@@ -833,4 +835,18 @@ button { font: inherit; }
   .nav-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
   .nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .case-hero { padding: clamp(24px, 6vw, 48px); min-height: 260px; }
+  .fielo-app-card .content { padding: 24px; }
+  .identity-lockup { padding: clamp(28px, 6vw, 56px); }
+  .logo-panel-light, .logo-panel-dark { padding: 24px; }
+  .outcome-card { padding: clamp(28px, 6vw, 48px); }
+  .photo-grid { grid-template-columns: 1fr; }
+  .work-tile-name { padding: 0 16px; word-break: break-word; }
+}
+
+@media (max-width: 420px) {
+  .about-teaser-actions .btn,
+  .about-teaser-actions { width: 100%; }
+  .about-teaser-actions .btn { text-align: center; }
 }
