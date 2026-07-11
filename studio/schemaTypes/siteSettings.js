@@ -83,7 +83,9 @@ export default defineType({
           type: 'object',
           fields: [
             {name: 'title', title: 'Title', type: 'string'},
+            {name: 'tags', title: 'Tags', type: 'array', of: [{type: 'string'}], description: '2-3 short labels shown next to the title, e.g. "Positioning", "Messaging"'},
             {name: 'desc', title: 'Description', type: 'text', rows: 2},
+            {name: 'image', title: 'Image', type: 'image', options: {hotspot: true}},
           ],
         },
       ],

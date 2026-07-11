@@ -170,11 +170,11 @@ const SITE_SETTINGS = {
 
   servicesLead: "Strategy-first branding for founders who need their business understood before it's admired.",
   servicesList: [
-    { title: 'Brand Strategy', desc: 'Positioning, messaging, and the strategic groundwork every other decision depends on.' },
-    { title: 'Naming', desc: 'Names that are ownable, sayable, and built to survive a trademark search.' },
-    { title: 'Identity Design', desc: 'Wordmarks and visual systems built on typography, not decoration.' },
-    { title: 'Brand Systems', desc: 'Guidelines, grids, and rules that let a brand grow without falling apart.' },
-    { title: 'Applications', desc: 'Everything from business cards to product UI, designed to carry the strategy through.' }
+    { title: 'Brand Strategy', tags: ['Positioning', 'Messaging', 'Research'], desc: 'Positioning, messaging, and the strategic groundwork every other decision depends on.' },
+    { title: 'Naming', tags: ['Verbal Identity', 'Trademark Search'], desc: 'Names that are ownable, sayable, and built to survive a trademark search.' },
+    { title: 'Identity Design', tags: ['Wordmarks', 'Visual Systems'], desc: 'Wordmarks and visual systems built on typography, not decoration.' },
+    { title: 'Brand Systems', tags: ['Guidelines', 'Grids', 'Rules'], desc: 'Guidelines, grids, and rules that let a brand grow without falling apart.' },
+    { title: 'Applications', tags: ['Business Cards', 'Product UI'], desc: 'Everything from business cards to product UI, designed to carry the strategy through.' }
   ],
 
   contactLead: "Tell me about the business problem you're trying to solve — I'll tell you if design can help.",

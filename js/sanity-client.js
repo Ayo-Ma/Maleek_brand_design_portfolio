@@ -59,6 +59,9 @@
     merged.homePortraitUrl = imageUrl(remote.homePortrait, { w: 1200 });
     merged.aboutPortraitUrl = imageUrl(remote.aboutPortrait, { w: 1200 });
     merged.feedImageUrls = (remote.feedImages || []).map(function (img) { return imageUrl(img, { w: 800 }); }).filter(Boolean);
+    merged.servicesList = (merged.servicesList || []).map(function (item) {
+      return Object.assign({}, item, { imageUrl: imageUrl(item.image, { w: 700 }) || null, tags: item.tags || [] });
+    });
     return merged;
   }
 

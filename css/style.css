@@ -193,7 +193,8 @@ button { font: inherit; }
 
 /* ---------- Home: Hero ---------- */
 .hero {
-  padding: 128px 0 96px;
+  padding-top: 128px;
+  padding-bottom: 96px;
 }
 .eyebrow {
   font-family: 'IBM Plex Mono', monospace;
@@ -222,7 +223,7 @@ button { font: inherit; }
 
 /* ---------- Home: About teaser ---------- */
 .about-teaser {
-  padding: 0 0 96px;
+  padding-bottom: 96px;
 }
 .about-teaser-grid {
   display: grid;
@@ -290,7 +291,7 @@ button { font: inherit; }
 .about-teaser-note .txt { font-size: 14px; color: var(--ink); line-height: 1.4; }
 
 /* ---------- Industries ---------- */
-.industries { padding: 0 0 80px; }
+.industries { padding-bottom: 80px; }
 .industries .label {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
@@ -315,7 +316,7 @@ button { font: inherit; }
 }
 
 /* ---------- Philosophy ---------- */
-.philosophy { padding: 0 0 96px; }
+.philosophy { padding-bottom: 96px; }
 .philosophy .label {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
@@ -355,7 +356,7 @@ button { font: inherit; }
 .philosophy-card .desc { font-size: 15px; color: var(--muted); line-height: 1.6; }
 
 /* ---------- Selected work (home) ---------- */
-.selected-work { padding: 0 0 96px; }
+.selected-work { padding-bottom: 96px; }
 .section-head {
   display: flex;
   align-items: baseline;
@@ -412,7 +413,7 @@ button { font: inherit; }
 .work-preview-block .tagline { font-size: 14px; color: var(--bg); opacity: 0.85; line-height: 1.5; }
 
 /* ---------- How I work ---------- */
-.how-i-work { padding: 0 0 96px; }
+.how-i-work { padding-bottom: 96px; }
 .how-i-work h2 { font-size: 36px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 40px; }
 .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 40px; }
 .how-grid .idx { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); margin-bottom: 12px; }
@@ -420,7 +421,7 @@ button { font: inherit; }
 .how-grid .desc { font-size: 15px; color: var(--muted); line-height: 1.5; }
 
 /* ---------- Feed ---------- */
-.feed { padding: 0 0 96px; }
+.feed { padding-bottom: 96px; }
 .feed-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
 .feed-tile { width: 100%; aspect-ratio: 4/5; border-radius: 12px; overflow: hidden; }
 
@@ -442,7 +443,7 @@ button { font: inherit; }
 .cta h2 { font-size: 44px; font-weight: 600; letter-spacing: -0.01em; margin: 0; max-width: 20ch; }
 
 /* ---------- About page ---------- */
-.about-page { padding: 128px 0 96px; }
+.about-page { padding-top: 128px; padding-bottom: 96px; }
 .about-page h1 { font-size: 64px; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 48px; }
 .about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 380px); gap: 64px; align-items: start; }
 .about-grid p.lead { font-size: 22px; line-height: 1.5; margin: 0 0 24px; max-width: 48ch; }
@@ -462,7 +463,7 @@ button { font: inherit; }
 .about-portrait { width: 100%; aspect-ratio: 4/5; border-radius: 20px; overflow: hidden; }
 
 /* ---------- Work page ---------- */
-.work-page { padding: 128px 0 96px; }
+.work-page { padding-top: 128px; padding-bottom: 96px; }
 .work-page-head { padding-bottom: 24px; }
 .work-page-head h1 { font-size: 64px; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 16px; }
 .work-page-head p { font-size: 18px; color: var(--muted); margin: 0 0 24px; max-width: 48ch; }
@@ -549,7 +550,7 @@ button { font: inherit; }
 .coming-soon-box span { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted-light); text-transform: uppercase; letter-spacing: 0.04em; }
 
 /* ---------- Case study ---------- */
-.case-page { padding: 96px 0 96px; }
+.case-page { padding-top: 96px; padding-bottom: 96px; }
 .case-back {
   cursor: pointer;
   font-family: 'IBM Plex Mono', monospace;
@@ -755,21 +756,40 @@ button { font: inherit; }
 }
 
 /* ---------- Services page ---------- */
-.services-page { padding: 128px 0 96px; }
+.services-page { padding-top: 128px; padding-bottom: 96px; }
 .services-page h1 { font-size: 64px; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 16px; }
 .services-page > .wrap > p.lead { font-size: 18px; color: var(--muted); margin: 0 0 64px; max-width: 52ch; }
-.services-list { margin-bottom: 96px; }
-.services-list .row { border-top: 1px solid var(--border); padding: 32px 0; }
-.services-list .row:last-child { border-bottom: 1px solid var(--border); }
-.services-list h3 { font-size: 22px; font-weight: 600; margin: 0 0 8px; }
-.services-list p { font-size: 16px; color: var(--muted); line-height: 1.6; margin: 0; max-width: 56ch; }
+.services-list { margin-bottom: 40px; }
+.service-card {
+  position: sticky;
+  min-height: 78vh;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -12px 32px rgba(17, 17, 17, 0.06);
+  display: flex;
+  align-items: center;
+}
+.service-card:last-child { border-bottom: 1px solid var(--border); }
+.service-card-inner {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 64px minmax(180px, 280px) minmax(160px, 220px) minmax(0, 1fr) minmax(200px, 280px);
+  gap: 24px 40px;
+  align-items: center;
+  padding: 56px 0;
+}
+.service-idx { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); }
+.service-title { font-size: 32px; font-weight: 600; letter-spacing: -0.01em; }
+.service-tags { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--accent); line-height: 1.9; }
+.service-desc { font-size: 16px; color: var(--muted); line-height: 1.6; max-width: 44ch; }
+.service-media { width: 100%; aspect-ratio: 4/3; border-radius: 16px; overflow: hidden; }
 .process-title { font-size: 36px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 40px; }
 .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 32px 40px; margin-bottom: 96px; }
 .process-grid .idx { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); margin-bottom: 8px; }
 .process-grid .title { font-size: 16px; font-weight: 500; }
 
 /* ---------- Contact page ---------- */
-.contact-page { padding: 160px 0 160px; }
+.contact-page { padding-top: 160px; padding-bottom: 160px; }
 .contact-page h1 { font-size: 72px; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 24px; }
 .contact-page p.lead { font-size: 22px; color: var(--muted); max-width: 48ch; margin: 0 0 48px; }
 .contact-page .email-btn { margin-bottom: 56px; }
@@ -802,43 +822,55 @@ button { font: inherit; }
   .case-section { grid-template-columns: 1fr; gap: 12px; }
   .photo-grid { grid-template-columns: repeat(2, 1fr); }
 
+  .service-card { min-height: 0; }
+  .service-card-inner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 32px 0;
+  }
+  .service-idx { order: 1; }
+  .service-title { order: 2; font-size: 26px; }
+  .service-media { order: 3; aspect-ratio: 16/9; }
+  .service-tags { order: 4; }
+  .service-desc { order: 5; max-width: none; }
+
   .wrap { padding-left: 24px; padding-right: 24px; }
   .nav { padding: 20px 24px; }
   .nav-links { gap: 16px; }
 
-  .hero { padding: 64px 0 48px; }
+  .hero { padding-top: 64px; padding-bottom: 48px; }
   .hero h1 { font-size: 40px; }
   .hero p { font-size: 17px; }
 
-  .about-teaser { padding: 0 0 64px; }
+  .about-teaser { padding-bottom: 64px; }
   .about-teaser-card { padding: 32px; }
   .about-teaser-card h2 { font-size: 30px; }
 
-  .industries { padding: 0 0 48px; }
+  .industries { padding-bottom: 48px; }
   .industries-row { gap: 24px; }
 
-  .philosophy { padding: 0 0 64px; }
+  .philosophy { padding-bottom: 64px; }
   .philosophy h2 { font-size: 30px; }
 
-  .selected-work { padding: 0 0 64px; }
+  .selected-work { padding-bottom: 64px; }
   .section-head h2 { font-size: 26px; }
   .work-row .name { font-size: 22px; }
   .work-preview-block .name { font-size: 26px; }
 
-  .how-i-work { padding: 0 0 64px; }
+  .how-i-work { padding-bottom: 64px; }
   .how-i-work h2 { font-size: 26px; }
 
-  .feed { padding: 0 0 64px; }
+  .feed { padding-bottom: 64px; }
 
   .cta { padding: 64px 24px; }
   .cta h2 { font-size: 28px; }
 
-  .about-page { padding: 64px 0 48px; }
+  .about-page { padding-top: 64px; padding-bottom: 48px; }
   .about-page h1 { font-size: 40px; }
   .about-grid p.lead { font-size: 18px; }
   .about-quote .q { font-size: 30px; }
 
-  .work-page { padding: 64px 0 48px; }
+  .work-page { padding-top: 64px; padding-bottom: 48px; }
   .work-page-head h1 { font-size: 40px; }
   .work-tile-name { font-size: 48px; }
   .work-tile-caption { bottom: 24px; left: 24px; }
@@ -857,11 +889,11 @@ button { font: inherit; }
 
   .lightbox { padding: 24px; }
 
-  .services-page { padding: 64px 0 48px; }
+  .services-page { padding-top: 64px; padding-bottom: 48px; }
   .services-page h1 { font-size: 40px; }
   .process-title { font-size: 26px; }
 
-  .contact-page { padding: 64px 0 96px; }
+  .contact-page { padding-top: 64px; padding-bottom: 96px; }
   .contact-page h1 { font-size: 40px; }
   .contact-page p.lead { font-size: 18px; }
 
