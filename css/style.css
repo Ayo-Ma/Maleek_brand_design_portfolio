@@ -462,6 +462,8 @@ button { font: inherit; }
 .work-page-head h1 { font-size: clamp(40px, 6vw, 64px); font-weight: 600; letter-spacing: -0.02em; margin: 0 0 16px; }
 .work-page-head p { font-size: 18px; color: var(--muted); margin: 0 0 24px; max-width: 48ch; }
 
+#work-tiles { padding: 0 16px; }
+
 .work-tile {
   cursor: pointer;
   border-top: 1px solid var(--border);
